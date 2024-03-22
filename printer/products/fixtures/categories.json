@@ -1,0 +1,1 @@
+[{"model": "products.printercategory", "pk": 1, "fields": {"name": "Test category", "description": "test category description"}}, {"model": "products.printercategory", "pk": 2, "fields": {"name": "New_test", "description": ""}}]

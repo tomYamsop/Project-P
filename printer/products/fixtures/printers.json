@@ -1,0 +1,41 @@
+[
+    {
+        "model": "products.printer",
+        "pk": 1,
+        "fields": {
+            "name": "Oki B432dn",
+            "image": "printer_images/Oki_B432dn.png",
+            "description": "Insert description of B432dn printer",
+            "short_description": "Printer B432dn",
+            "price": "0.00",
+            "quntity": 0,
+            "category": 1
+        }
+    },
+    {
+        "model": "products.printer",
+        "pk": 2,
+        "fields": {
+            "name": "Lexmark MS415dn",
+            "image": "printer_images/Lexmark_MS415dn.png",
+            "description": "Insert a description of the Lexmark MS415dn printer",
+            "short_description": "Printer Lexmark MS415dn",
+            "price": "0.00",
+            "quntity": 0,
+            "category": 1
+        }
+    },
+    {
+        "model": "products.printer",
+        "pk": 3,
+        "fields": {
+            "name": "Pantum BP5100DN",
+            "image": "printer_images/BP5100DN.jpg",
+            "description": "Insert description of Pantum BP5100DN printer",
+            "short_description": "Printer BP5100DN",
+            "price": "0.00",
+            "quntity": 0,
+            "category": 2
+        }
+    }
+]
