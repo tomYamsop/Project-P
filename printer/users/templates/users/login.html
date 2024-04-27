@@ -27,27 +27,23 @@
               </div>
               <div class="card-body">
                 <form action="{% url 'users:login' %}" method="post">
-                  {% csrf_token %} {{ form.as_p }}
-                  <!--            <div class="form-group">
-                    <label class="small mb-1" for="inputEmailAddress"
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <label
+                      class="small mb-1"
+                      for="{{ form.username.id_for_lable }}"
                       >Имя пользователя</label
                     >
-                    <input
-                      class="form-control py-4"
-                      id="inputEmailAddress"
-                      type="email"
-                      placeholder="Введите имя пользователя"
-                    />
+                    {{ form.username }}
                   </div>
                   <div class="form-group">
-                    <label class="small mb-1" for="inputPassword">Пароль</label>
-                    <input
-                      class="form-control py-4"
-                      id="inputPassword"
-                      type="password"
-                      placeholder="Введите пароль"
-                    />
-                  </div>-->
+                    <label
+                      class="small mb-1"
+                      for="{{ form.password.id_for_lable }}"
+                      >Пароль</label
+                    >
+                    {{ form.password }}
+                  </div>
                   <div
                     class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"
                   >
