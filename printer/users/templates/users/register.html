@@ -1,26 +1,22 @@
 {% extends "users/base.html" %} {% load static %} {% block content %}
-<div id="layoutAuthentication">
-  <div id="layoutAuthentication_content">
-    <main>
-      <div class="container">
-        <div class="row justify-content-center">
           <div class="col-lg-7">
+          {% if form.errors %}
             <div
-              class="alert alert-warning alert-dismissible fade show"
-              role="alert"
-              style="margin-top: 50px"
+            class="alert alert-warning alert-dismissible fade show"
+            role="alert"
+            style="margin-top: 50px"
+          >
+            {{ form.errors }}
+            <button
+              type="button"
+              class="close"
+              data-dismiss="alert"
+              aria-label="Close"
             >
-              <strong>Holy guacamole!</strong> Тебе следует проверить некоторые
-              из этих полей ниже.
-              <button
-                type="button"
-                class="close"
-                data-dismiss="alert"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          {% endif %}
             <div class="card shadow-lg border-0 rounded-lg mt-5">
               <div class="card-header">
                 <h3 class="text-center font-weight-light my-4">

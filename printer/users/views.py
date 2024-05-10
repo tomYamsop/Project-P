@@ -1,8 +1,8 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
-from django.contrib import auth
+from django.contrib import auth, messages
 
-from users.forms import UserLoginForm, UserRegistrationForm
+from users.forms import UserLoginForm, UserRegistrationForm, UserProfileForm
 
 # Create your views here.
 def login(request):
@@ -18,7 +18,10 @@ def login(request):
     else:
         form = UserLoginForm()
  
-    context = {'form': form}
+    context = {
+        'title': 'Авторизация в секту',
+        'form': form
+        }
     return render(request, 'users/login.html', context)
 
 def register(request):
@@ -26,8 +29,27 @@ def register(request):
         form = UserRegistrationForm(data=request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Теперь ты часть секты!!!')
             return HttpResponseRedirect(reverse('users:login'))
     else:
         form = UserRegistrationForm()
-    context = {'form': form} 
+    context = {
+        'title': 'Регистрация в секту',
+        'form': form
+        } 
     return render(request, 'users/register.html', context)
+
+def profile(request):
+    if request.method == 'POST':
+        form = UserProfileForm(data=request.POST, files=request.FILES, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('users:profile'))
+    else:
+        form = UserProfileForm(instance=request.user)
+    contex = {'form': form}
+    return render(request, 'users/profile.html', contex)
+
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('index'))
